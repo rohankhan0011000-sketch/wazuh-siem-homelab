@@ -14,6 +14,14 @@ This project demonstrates the deployment and configuration of a Wazuh SIEM envir
 - Real-time file change detection
 - Security event analysis
 
+## Data Flow
+- The Wazuh Agent runs on the Windows 11 endpoint.
+- The agent monitors configured files and system activity.
+- File integrity events are sent to the Wazuh Manager.
+- The Wazuh Manager processes the events.
+- Events are indexed by Wazuh Indexer.
+- The Wazuh Dashboard provides a centralized interface for investigation and analysis.
+
 ## Architecture
 
 Windows 11 Endpoint
@@ -42,6 +50,12 @@ Wazuh Dashboard
 | Network | Local lab network |
 
 ## Implementation
+
+Deployed the Wazuh all-in-one environment consisting of:
+- Wazuh Manager
+- Wazuh Indexer
+- Wazuh Dashboard
+- Filebeat
 
 ### 1. Wazuh Server
 
@@ -100,3 +114,32 @@ Additional Linux endpoints
 ### Test Directory
 
 ![Test Directory](screenshots/wazuh-test-file.png)
+
+### wazuh agent
+
+![Test Directory](screenshots/wazuh-agent.png)
+
+
+### Key Commands
+
+## System Preparation
+- sudo apt update
+- sudo apt upgrade -y
+
+## Verify Wazuh Services
+- sudo systemctl status wazuh-manager
+- sudo systemctl status wazuh-indexer
+- sudo systemctl status wazuh-dashboard
+- sudo systemctl status filebeat
+
+## Check Network Configuration
+- ip addr
+
+## All-in-one deployment
+- sudo bash wazuh-install.sh -a
+
+## Monitor Wazuh Installation Logs
+- sudo tail -f /var/log/wazuh-install.log
+
+## Reference for guided installation
+https://documentation.wazuh.com/current/installation-guide/index.html
