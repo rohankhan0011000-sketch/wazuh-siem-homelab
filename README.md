@@ -119,6 +119,10 @@ Additional Linux endpoints
 
 ![Test Directory](screenshots/wazuh-agent.png)
 
+## lab architecture
+
+![Test Directory](screenshots/architecture.png)
+
 
 ### Key Commands
 
